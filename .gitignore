@@ -55,3 +55,4 @@ target
 *.eml
 *.iml
 .idea
+*.class
