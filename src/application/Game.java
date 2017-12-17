@@ -26,18 +26,21 @@ public class Game {
 		this.syntheManager = new SynthetizerManager();
 
 		this.window = window;
-		this.piano = new Piano();
+		this.piano = new Piano(window, syntheManager);
 		this.isRunning = true;
 	}
 	
 	public void init() {
-		piano.init();
+		
 		fonts.load();
 		syntheManager.init();
+		piano.setPosition(0, (800 - 150));
+		piano.init();
+		
 		guis.init();	 
 		Piece test = new Piece();
-		test.loadPieceFromMidi("res/musics/dn.mid");
-		System.out.println(test);
+		//test.loadPieceFromMidi("res/musics/dn.mid");
+		//System.out.println(test);
 	}
 	
 	public void update(Time dt) {		
@@ -65,5 +68,6 @@ public class Game {
 
 	public void handleEvent(Event event) {
 		this.guis.handleEvent(event);
+		piano.handleEvent(event);
 	}
 }

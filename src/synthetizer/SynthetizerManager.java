@@ -3,10 +3,8 @@ package synthetizer;
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Sequencer;
 import javax.sound.midi.Synthesizer;
 
-import piece.Piece;
 
 public class SynthetizerManager {
 	
@@ -30,7 +28,6 @@ public class SynthetizerManager {
 			} catch (MidiUnavailableException e) {
 				e.printStackTrace();
 			}
-		
 	}
 	
 	public void playNote(int note, int velocity, int channel, int time) {
@@ -45,15 +42,19 @@ public class SynthetizerManager {
 					e.printStackTrace();
 				}
 				channels[channel].noteOff(note);
-				
 			}
 		});
 		th.start();
 	}
 	
-	public void playPiece(Piece p) {
-		
+	public void playNote(int note, int channel) {
+		channels[channel].noteOn(note, 100);
 	}
+	
+	public void stopNote(int note, int channel) {
+		channels[channel].noteOff(note);
+	}
+	
 	
 	public void changeInstrument(int channel, int instrument) {
 		
