@@ -51,9 +51,9 @@ public class Piece {
 	                    ShortMessage sm = (ShortMessage) message;
 	                    channelNumber =  sm.getChannel();
 	                    if(getChannel(trackNumber, channelNumber) == null) {
-	                    	tracks.get(trackNumber).addChannel(new Channel(channelNumber));
+	                    	tracks.get(trackNumber).addChannel(new MyChannel(channelNumber));
 	                    }
-	                    Channel channel = getChannel(trackNumber, channelNumber);
+	                    MyChannel channel = getChannel(trackNumber, channelNumber);
 	                    
 	                    if (sm.getCommand() == ShortMessage.NOTE_ON) {
 	                    	
@@ -84,7 +84,7 @@ public class Piece {
 	                    } 
 	                    else if(sm.getCommand() == ShortMessage.PROGRAM_CHANGE) {	   
 	                    	if(getChannel(trackNumber, sm.getData1()) == null) {
-		                    	tracks.get(trackNumber).addChannel(new Channel(sm.getData1()));
+		                    	tracks.get(trackNumber).addChannel(new MyChannel(sm.getData1()));
 		                    }
 	                    	getChannel(trackNumber, sm.getData1()).setIntrument(sm.getData2());	 
 	                    	System.out.println("Change instrument Channel : " + sm.getData1() + " Intru : " + sm.getData2());
@@ -109,8 +109,8 @@ public class Piece {
 		return this.sequence;
 	}
 	
-	public Channel getChannel(int trackId, int channelId) {
-		for(Channel c : getTrack(trackId).getChannels()) {
+	public MyChannel getChannel(int trackId, int channelId) {
+		for(MyChannel c : getTrack(trackId).getChannels()) {
 			if(c.getNumber() == channelId) return c;
 		}
 		return null;
@@ -128,7 +128,7 @@ public class Piece {
 		 str += "Resolution : " + resolution + "\n";
 		 str += "Size : " + tickLengh + "\n";
 		 for(MyTrack t : tracks) {
-			 for(Channel c : t.getChannels()) {
+			 for(MyChannel c : t.getChannels()) {
 				 for(Key key : c.getNotes()) {
 					 str += key + "\n";
 				 }

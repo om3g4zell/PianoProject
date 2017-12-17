@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MyTrack {
 
-	private ArrayList<Channel> channels;
+	private ArrayList<MyChannel> channels;
 	private int trackNumber;
 	
 	public MyTrack(int trackNumber) {
@@ -12,11 +12,11 @@ public class MyTrack {
 		this.channels = new ArrayList<>();
 	}
 	
-	public void addChannel(Channel channel) {
+	public void addChannel(MyChannel channel) {
 		this.channels.add(channel);
 	}
 	
-	public ArrayList<Channel> getChannels() {
+	public ArrayList<MyChannel> getChannels() {
 		return this.channels;
 	}
 	

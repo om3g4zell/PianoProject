@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 import piano.Key;
 
-public class Channel {
+public class MyChannel {
 	
 	private ArrayList<Key> channel;
 	private int intrument;
 	private int number;
 	
-	public Channel(int number) {
+	public MyChannel(int number) {
 		this.number = number;
 		channel = new ArrayList<>();
 		intrument = 0;
