@@ -86,7 +86,6 @@ public class Piano extends BasicTransformable implements Drawable{
 					pk.setActiveFlag(true);
 					lastNote = pk;
 					sm.playNote(pk.getValue(), 0);
-					System.out.println(pk.getValue());
 					return;
 				}
 			}
@@ -98,7 +97,6 @@ public class Piano extends BasicTransformable implements Drawable{
 					pk.setActiveFlag(true);
 					lastNote = pk;
 					sm.playNote(pk.getValue(), 0);
-					System.out.println(pk.getValue());
 					return;
 				}
 			}
