@@ -9,6 +9,7 @@ import gui.GuiPool;
 import lib.FontManager;
 import piano.Piano;
 import piece.Piece;
+import piece.PieceReader;
 import synthetizer.SynthetizerManager;
 
 
@@ -20,6 +21,7 @@ public class Game {
 	private GuiPool guis;
 	private SynthetizerManager syntheManager;
 	private Piano piano;
+	private PieceReader pr;
 	
 	public Game(RenderWindow window) {
 		this.fonts = new FontManager();
@@ -29,6 +31,7 @@ public class Game {
 		this.window = window;
 		this.piano = new Piano(window, syntheManager);
 		this.isRunning = true;
+		this.pr = new PieceReader();
 	}
 	
 	public void init() {
@@ -40,8 +43,12 @@ public class Game {
 		piano.init();
 		
 		guis.init();	 
+		pr.init();
 		Piece test = new Piece();
-		//test.loadPieceFromMidi("res/musics/naruto.mid");
+		test.loadPieceFromMidi("res/musics/dn.mid");
+		pr.loadPiece(test);
+		pr.StartMusic();
+		
 		//System.out.println(test);
 	}
 	
@@ -66,6 +73,7 @@ public class Game {
 
 	public void stop() {
 		syntheManager.close();
+		pr.stop();
 	}
 
 	public void handleEvent(Event event) {

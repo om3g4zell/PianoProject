@@ -48,7 +48,7 @@ public class SynthetizerManager {
 	}
 	
 	public void playNote(int note, int channel) {
-		channels[channel].noteOn(note, 100);
+		channels[channel].noteOn(note, 1000);
 	}
 	
 	public void stopNote(int note, int channel) {
