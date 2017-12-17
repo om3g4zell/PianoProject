@@ -34,12 +34,13 @@ public class Game {
 		
 		fonts.load();
 		syntheManager.init();
+		//syntheManager.changeInstrument(0, 24);
 		piano.setPosition(0, (800 - 150));
 		piano.init();
 		
 		guis.init();	 
 		Piece test = new Piece();
-		//test.loadPieceFromMidi("res/musics/dn.mid");
+		test.loadPieceFromMidi("res/musics/naruto.mid");
 		//System.out.println(test);
 	}
 	
