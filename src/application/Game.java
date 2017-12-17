@@ -11,6 +11,7 @@ import piano.Piano;
 import piece.Piece;
 import synthetizer.SynthetizerManager;
 
+
 public class Game {
 
 	private RenderWindow window;
@@ -40,7 +41,7 @@ public class Game {
 		
 		guis.init();	 
 		Piece test = new Piece();
-		test.loadPieceFromMidi("res/musics/naruto.mid");
+		//test.loadPieceFromMidi("res/musics/naruto.mid");
 		//System.out.println(test);
 	}
 	
