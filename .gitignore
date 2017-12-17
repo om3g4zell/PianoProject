@@ -47,7 +47,9 @@ Temporary Items
 .apdisk
 
 #Java
-
+bin
+target
+*.class
 
 #IntelliJ
 *.eml
